@@ -1,5 +1,8 @@
 import fs from "fs"
 
+
+const funktion = (text) =>{
+
 fs.access("./daniel.txt", fs.constants.F_OK, (err) => {
     if (err) {
         fs.writeFile("./daniel.txt", "beliebiger text", (err) => {
@@ -12,7 +15,7 @@ fs.access("./daniel.txt", fs.constants.F_OK, (err) => {
         console.error('Die Datei existiert nicht.');
         return;
     }else{
-        fs.writeFile("./daniel.txt", "\n" + "neuer text" + "\n",{flag:"a"}, (err) => {
+        fs.writeFile("./daniel.txt", "\n" + text + "\n",{flag:"a"}, (err) => {
             if (err) {
                 console.error(err);
                 return;
@@ -20,4 +23,7 @@ fs.access("./daniel.txt", fs.constants.F_OK, (err) => {
             console.log("Datei geschrieben");
             });
     }
-    });
+    })
+}
+
+funktion("random aller")
